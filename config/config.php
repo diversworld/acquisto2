@@ -5,22 +5,22 @@ $GLOBALS['BE_MOD']['acquisto'] = array
     'acquistoShopManufactor' => array
     (
 		'tables'     => array('tl_shop_manufactor'),
-		'icon'       => 'system/modules/scquisto2/assets/icons/tl_shop_manufactor.png',
+		'icon'       => 'system/modules/acquisto2/assets/icons/tl_shop_manufactor.png',
     ),
     'acquistoShopProducts' => array
     (
 		'tables'     => array('tl_shop_products', 'tl_shop_products_attributes', 'tl_shop_products_variants'),
-		'icon'       => 'system/modules/scquisto2/assets/icons/tl_shop_products.png'
+		'icon'       => 'system/modules/acquisto2/assets/icons/tl_shop_products.png'
     ),
     'acquistoShopCategories' => array
     (
 		'tables'     => array('tl_shop_categories'),
-		'icon'       => 'system/modules/scquisto2/assets/icons/tl_shop_categories.png'
+		'icon'       => 'system/modules/acquisto2/assets/icons/tl_shop_categories.png'
     ),
     'acquistoShopCoupons' => array
     (
 		'tables'     => array('tl_shop_coupons'),
-		'icon'       => 'system/modules/scquisto2/assets/icons/tl_shop_coupons.png'
+		'icon'       => 'system/modules/acquisto2/assets/icons/tl_shop_coupons.png'
     )
 );
 
@@ -29,7 +29,7 @@ $GLOBALS['BE_MOD']['acquisto_Orders'] = array
     'acquistoShopOrders' => array
     (
 		'tables'     => array('tl_shop_orders', 'tl_shop_orders_items', 'tl_shop_orders_customer'),
-		'icon'       => 'system/modules/scquisto2/assets/icons/tl_shop_orders.png'
+		'icon'       => 'system/modules/acquisto2/assets/icons/tl_shop_orders.png'
     )
 );
 
@@ -38,53 +38,53 @@ $GLOBALS['BE_MOD']['acquisto_Settings'] = array
     'acquistoShopAttribute' => array
     (
 		'tables'     => array('tl_shop_attribute', 'tl_shop_attribute_values'),
-		'icon'       => 'system/modules/scquisto2/assets/icons/tl_shop_attribute.png',
+		'icon'       => 'system/modules/acquisto2/assets/icons/tl_shop_attribute.png',
     ),
     'acquistoShopSettings' => array
     (
 		'tables'     => array('tl_shop_settings'),
-		'icon'       => 'system/modules/scquisto2/assets/icons/tl_shop_settings.png'
+		'icon'       => 'system/modules/acquisto2/assets/icons/tl_shop_settings.png'
     ),
     'acquistoShopUnits' => array
     (
 		'tables'     => array('tl_shop_units'),
-		'icon'       => 'system/modules/scquisto2/assets/icons/tl_shop_units.png'
+		'icon'       => 'system/modules/acquisto2/assets/icons/tl_shop_units.png'
     ),
     'acquistoShopTax' => array
     (
 		'tables'     => array('tl_shop_tax', 'tl_shop_tax_items'),
-		'icon'       => 'system/modules/scquisto2/assets/icons/tl_shop_tax.png'
+		'icon'       => 'system/modules/acquisto2/assets/icons/tl_shop_tax.png'
     ),
     'acquistoShopShippingZones' => array
     (
 		'tables'     => array('tl_shop_shippingzones', 'tl_shop_shippingzones_conditions'),
-		'icon'       => 'system/modules/scquisto2/assets/icons/tl_shop_shippingzones.png'
+		'icon'       => 'system/modules/acquisto2/assets/icons/tl_shop_shippingzones.png'
     ),
     'acquistoShopPayment' => array
     (
 		'tables'     => array('tl_shop_payment'),
-		'icon'       => 'system/modules/scquisto2/assets/icons/tl_shop_payment.png'
+		'icon'       => 'system/modules/acquisto2/assets/icons/tl_shop_payment.png'
     ),
     'acquistoShopCurrency' => array
     (
 		'tables'     => array('tl_shop_currency'),
-		'icon'       => 'system/modules/scquisto2/assets/icons/tl_shop_currency.png'
+		'icon'       => 'system/modules/acquisto2/assets/icons/tl_shop_currency.png'
     ),
     'acquistoShopPricelists' => array
     (
 		'tables'     => array('tl_shop_pricelists'),
-		'icon'       => 'system/modules/scquisto2/assets/gfx/page_paste.png',
+		'icon'       => 'system/modules/acquisto2/assets/gfx/page_paste.png',
     ),
     'acquistoShopExport' => array
     (
 		'tables'     => array('tl_shop_export'),
-		'icon'       => 'system/modules/scquisto2/assets/gfx/page_code.png',
+		'icon'       => 'system/modules/acquisto2/assets/gfx/page_code.png',
 		'export'     => array('tl_shop_export', 'exportData'),
     ),
 //     'acquistoShopImport' => array
 //     (
 //         'tables'     => array('tl_shop_import', 'tl_shop_import_log'),
-//         'icon'       => 'system/modules/scquisto2/assets/gfx/page_code.png',
+//         'icon'       => 'system/modules/acquisto2/assets/gfx/page_code.png',
 //         'importData' => array('acquistoShopBackend', 'importData'),
 //     )
 );
@@ -117,7 +117,7 @@ $GLOBALS['BE_MOD']['acquisto_Settings'] = array
 // */
 ////$GLOBALS['TL_CTE']['acquistoShop']['product'] = 'ContentProduct';
 
-//$GLOBALS['TL_JAVASCRIPT'][] = '/system/modules/scquisto2/assets/javascript/scquisto2.js';
+//$GLOBALS['TL_JAVASCRIPT'][] = '/system/modules/acquisto2/assets/javascript/acquisto2.js';
 
 //
 //$GLOBALS['TL_HOOKS']['getSystemMessages']['loadSystemmessages'] = array('AcquistoShop\acquistoShopMessages', 'checkAcquistoState');
@@ -126,14 +126,14 @@ $GLOBALS['BE_MOD']['acquisto_Settings'] = array
 //
 //if (TL_MODE == 'BE')
 //{
-//    $GLOBALS['TL_CSS'][] = 'system/modules/scquisto2/assets/css/backend.css|all';
+//    $GLOBALS['TL_CSS'][] = 'system/modules/acquisto2/assets/css/backend.css|all';
 //
 //    if($GLOBALS['TL_CONFIG']['serialnumber'])
 //    {
 //	$GLOBALS['BE_MOD']['acquisto_Settings']['acquistoShopPortal'] = array
 //	(
 //	   'callback'   => 'ModuleAcquistoPortal',
-//	   'icon'       => 'system/modules/scquisto2/html/assets/gfx/plugin.png',
+//	   'icon'       => 'system/modules/acquisto2/html/assets/gfx/plugin.png',
 //	);
 //    }
 //
