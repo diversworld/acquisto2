@@ -1,0 +1,40 @@
+<div id="product_<?php echo $this->id; ?>" class="<?php if($this->marked): ?>marked <?php endif; ?><?php if($this->css): ?><?php echo $this->css; ?><?php endif; ?>">
+  <h1><?php echo $this->name; ?></h1>
+
+  <span class="productcode"><?php echo $this->productcode; ?></span>
+
+  <?php if (!$this->singleSrc->addBefore): ?>
+    <?php echo $this->teaser; ?>
+  <?php endif; ?>
+
+  <?php if ($this->singleSrc->addImage): ?>
+    <figure class="image_container<?php echo $this->singleSrc->floatClass; ?>"<?php if ($this->singleSrc->margin || $this->singleSrc->float): ?> style="<?php echo trim($this->singleSrc->margin . $this->singleSrc->float); ?>"<?php endif; ?>>
+
+      <?php if ($this->singleSrc->href): ?>
+        <a href="<?php echo $this->singleSrc->href; ?>"<?php if ($this->singleSrc->linkTitle): ?> title="<?php echo $this->singleSrc->linkTitle; ?>"<?php endif; ?><?php echo $this->singleSrc->attributes; ?>>
+      <?php endif; ?>
+
+      <img src="<?php echo $this->singleSrc->src; ?>"<?php echo $this->singleSrc->imgSize; ?> alt="<?php echo $this->singleSrc->alt; ?>"<?php if ($this->singleSrc->title): ?> title="<?php echo $this->singleSrc->title; ?>"<?php endif; ?>>
+
+      <?php if ($this->singleSrc->href): ?>
+        </a>
+      <?php endif; ?>
+
+      <?php if ($this->singleSrc->caption): ?>
+        <figcaption class="caption" style="width:<?php echo $this->singleSrc->arrSize[0]; ?>px"><?php echo $this->singleSrc->caption; ?></figcaption>
+      <?php endif; ?>
+
+    </figure>
+  <?php endif; ?>
+
+  <?php if ($this->singleSrc->addBefore): ?>
+    <?php echo $this->teaser; ?>
+  <?php endif; ?>
+
+  <div class="pricing">
+  ab xx.xx CUR inklsiv/exclusiv xx% tax
+  <span class="shipping">exclusiv Shipping Costs</span>
+  </div>
+
+  <span class="link more"><a href="<?php echo $this->url; ?>">Details</a></span>
+</div>
