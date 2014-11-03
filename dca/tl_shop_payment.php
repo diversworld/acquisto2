@@ -23,11 +23,12 @@ $GLOBALS['TL_DCA']['tl_shop_payment'] = array
 			'mode'                    => 1,
 			'fields'                  => array('title'),
 			'flag'                    => 1,
-			'panelLayout'             => 'search,limit'
+			'panelLayout'             => 'filter;search,limit'
 		),
 		'label' => array
 		(
-			'fields'                  => array('title'),
+			'fields'                  => array('title', 'module'),
+			'showColumns'             => true,
 			'format'                  => '%s <span style="color:#b3b3b3; padding-left:3px;">[]</span>'
 		),
 		'global_operations' => array
@@ -72,7 +73,7 @@ $GLOBALS['TL_DCA']['tl_shop_payment'] = array
 	'palettes' => array
 	(
 		'__selector__'                => array('payment_module'),
-		'default'                     => '{title_legend},title,module,description;{configuration_legend},configData;{useable_legend},guests,groups;'
+		'default'                     => '{title_legend},title,module,description;{config_legend},configData;{useable_legend},guests,groups;'
 	),
 	'fields' => array
 	(
@@ -89,6 +90,9 @@ $GLOBALS['TL_DCA']['tl_shop_payment'] = array
 			'label'                   => &$GLOBALS['TL_LANG']['tl_shop_payment']['title'],
 			'inputType'               => 'text',
 			'search'                  => true,
+                        'exclude'                 => true,
+                        'filter'                  => false,
+                        'sorting'                 => false,			
 			'eval'                    => array('mandatory' => true, 'maxlength' => 64, 'tl_class' => 'w50'),
 			'sql'                     => "varchar(255) NOT NULL default ''"
 		),
@@ -97,7 +101,11 @@ $GLOBALS['TL_DCA']['tl_shop_payment'] = array
 			'label'                   => &$GLOBALS['TL_LANG']['tl_shop_payment']['module'],
 			'inputType'               => 'select',
 			'search'                  => false,
-//			'options_callback'        => array('tl_shop_payment', 'getPaymentModules'),
+                        'exclude'                 => true,
+                        'filter'                  => true,
+                        'sorting'                 => false,
+			'options_callback'        => array('tl_shop_payment', 'getPaymentModules'),
+			'reference'               => &$GLOBALS['TL_LANG']['tl_shop_payment']['select_options'],
 			'eval'                    => array('mandatory' => true, 'includeBlankOption' => true, 'tl_class' => 'w50', 'submitOnChange' => true),
 			'sql'                     => "varchar(255) NOT NULL default ''"
 		),
@@ -105,6 +113,10 @@ $GLOBALS['TL_DCA']['tl_shop_payment'] = array
 		(
 			'label'                   => &$GLOBALS['TL_LANG']['tl_shop_payment']['description'],
 			'inputType'               => 'textarea',
+			'search'                  => false,
+                        'exclude'                 => true,
+                        'filter'                  => false,
+                        'sorting'                 => false,
 			'eval'                    => array('mandatory' => false, 'rte' => 'tinyMCE', 'tl_class' => 'clr'),
 			'sql'                     => "text NOT NULL"
 		),
@@ -113,6 +125,9 @@ $GLOBALS['TL_DCA']['tl_shop_payment'] = array
 			'label'                   => &$GLOBALS['TL_LANG']['tl_shop_payment']['guests'],
 			'inputType'               => 'checkbox',
 			'search'                  => false,
+                        'exclude'                 => true,
+                        'filter'                  => true,
+                        'sorting'                 => false,
 			'eval'                    => array('mandatory' => false, 'tl_class' => 'w50'),
 			'sql'                     => "char(1) NOT NULL default ''"
 		),
@@ -122,6 +137,9 @@ $GLOBALS['TL_DCA']['tl_shop_payment'] = array
 			'inputType'               => 'checkbox',
 			'foreignKey'              => 'tl_member_group.name',
 			'search'                  => false,
+                        'exclude'                 => true,
+                        'filter'                  => true,
+                        'sorting'                 => false,
 			'eval'                    => array('multiple' => true, 'mandatory' => false, 'tl_class' => 'w50'),
 			'sql'                     => "text NOT NULL"
 		),
@@ -135,12 +153,12 @@ $GLOBALS['TL_DCA']['tl_shop_payment'] = array
 
 class tl_shop_payment extends Backend
 {
-	public function __construct()
-	{
-		parent::__construct();
-		$this->import('BackendUser', 'User');
+    public function __construct()
+    {
+	parent::__construct();
+	$this->import('BackendUser', 'User');
 //		$this->import('acquistoShopPayment', 'Payment');
-	}
+    }
 
 	public function nadas(DataContainer $DC)
 	{
@@ -186,12 +204,21 @@ class tl_shop_payment extends Backend
 //		return $htmlData;
 	}
 
-	public function getGroups()
-	{
+    public function getGroups()
+    {
+    }
+
+    public function getPaymentModules()
+    {
+	$paymentDir = opendir(TL_ROOT . '/system/modules/acquisto2/classes/payment');
+	while (($file = readdir($paymentDir)) !== false) {
+	    if (substr($file, -4) == '.php') {
+		$modules[] = substr($file, 0, -4);
+	    }
 	}
 
-	public function getPaymentModules()
-	{
-		return $this->Payment->getModules();
-	}
+	closedir($fontsdir);
+
+	return $modules;
+    }
 }

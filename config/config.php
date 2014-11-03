@@ -17,10 +17,10 @@ $GLOBALS['BE_MOD']['acquisto'] = array
 		'tables'     => array('tl_shop_categories'),
 		'icon'       => 'system/modules/acquisto2/assets/icons/tl_shop_categories.png'
     ),
-    'acquistoShopCoupons' => array
+    'acquistoShopVoucher' => array
     (
-		'tables'     => array('tl_shop_coupons'),
-		'icon'       => 'system/modules/acquisto2/assets/icons/tl_shop_coupons.png'
+		'tables'     => array('tl_shop_voucher'),
+		'icon'       => 'system/modules/acquisto2/assets/icons/tl_shop_voucher.png'
     )
 );
 
@@ -144,7 +144,7 @@ $GLOBALS['BE_MOD']['acquisto_Settings'] = array
 //$GLOBALS['ACQUISTO_PCLASS']['digital'] = array('AcquistoShop\Product\acquistoPClassDigital', 'acquistoShop');
 //$GLOBALS['ACQUISTO_PCLASS']['variant'] = array('AcquistoShop\Product\acquistoPClassVariant', 'acquistoShop');
 
-//*$GLOBALS['TL_HOOKS']['replaceInsertTags'][] = array('\Acquisto\Classes\InsertTags', 'replaceAcquistoInsertTags');
+$GLOBALS['TL_HOOKS']['replaceInsertTags'][] = array('\Acquisto\Classes\InsertTags', 'replaceAcquistoInsertTags');
 
 $GLOBALS['TL_HEAD']['ACQUISTO2'] = '<!--
 
